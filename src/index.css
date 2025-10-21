@@ -26,6 +26,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -33,6 +34,8 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  display: flex;
+  justify-content: center;
 }
 
 button {
@@ -53,6 +56,59 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.product-card {
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  height: 100%; /* fill the parent column height */
+  min-height: 650px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+  height: 250px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.price-text {
+  text-align: center;
+  color: #28a745; /* soft green for price */
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.details-link {
+  display: block;
+  text-align: center;
+  padding: 0.75rem;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  border-top: 1px solid #eee;
+}
+
+.details-link:hover {
+  color: #0056b3;
+  background-color: #f8f9fa;
+}
+
+.custom-button{
+  text-decoration: none;
+  color: #1a1a1a;
+  background-color: #28a745;
+  padding: 12px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
