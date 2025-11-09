@@ -35,9 +35,9 @@ function ProductList(){
         <Container>
           <Row>
             {products.map((product)=>(
-              <Col key ={product.id} md={4} className="mb-3">
+              <Col key ={product.id} md={4} className="mb-2">
                 <Card  className="product-card shadow-sm">
-                  <Card.Img variant="top" src={product.image} alt={product.name}/>
+                  <Card.Img variant="top" src={product.image} alt={product.name} className="productlist-img"/>
                   <CardBody>
                     <Card.Title className="text-center">{product.title}</Card.Title>
                     <Card.Text className="price-text">${product.price.toFixed(2)}</Card.Text>

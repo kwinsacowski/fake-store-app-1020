@@ -1,42 +1,46 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+  --gradient-primary: linear-gradient(135deg, #13547a 0%, #80d0c7 100%);
+  --gradient-dark: linear-gradient(135deg, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+  --transition-speed: 0.3s;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.hero-section {
+  background: var(--gradient-dark);
+  color: white;
+  min-height: calc(100vh - 56px);
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.welcome-text {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.hero-btn {
+  transition: all var(--transition-speed);
+  border: none;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.card {
-  padding: 2em;
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.read-the-docs {
-  color: #888;
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.shadow-hover {
+  transition: box-shadow var(--transition-speed);
+}
+
+.shadow-hover:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
-import { Container, Form, Button, Alert, FormGroup, FormLabel } from "react-bootstrap";
+import { Container, Button, Alert } from "react-bootstrap";
+import Form from 'react-bootstrap/Form';
 
 
 function AddProduct(){
@@ -33,46 +34,56 @@ function AddProduct(){
       setProduct(response.data);
       setSubmitted(true);
       setError('');
+      setFormData({
+        title: '',
+        description: '',
+        category: '',
+        price: '',
+        image: '',
+  });
+    setTimeout(() => {
+        setSubmitted(false);
+      }, 3000);
+
     } catch (error){
-      setError(`Error adding Product, Try again fool: ${error.message}`);
+      setError(`Error adding Product, Try again: ${error.message}`);
       setSubmitted(false);
     }
   }
 
   return (
-    <Container className="mt-5
-    ">
+    <Container className="mt-5">
       <h2 className="mt-5">Add Product</h2>
 
-      {submitted && <Alert variant="success" dismissible>It fucking worked!</Alert>}
-      {error && <Alert variant="danger" dismissible>You're stoooooopid: {error}</Alert>}
+      {submitted && <Alert variant="success" dismissible>Product Added!</Alert>}
+      {error && <Alert variant="danger" dismissible>Unable to add product: {error}</Alert>}
 
       <Form onSubmit={handleSubmit}>
 
-        <FormGroup className="mb-3">
-          <FormLabel>Title</FormLabel>
-          <Form.Control type="text" placeholder="What's it's name?" name="title" value={formData.title} onChange={handleChange} required></Form.Control>
-        </FormGroup>
+        <Form.Group className="mb-3">
+          <Form.Label>Title</Form.Label>
+          <Form.Control type="text" placeholder="Product Name" name="title" value={formData.title} onChange={handleChange} required></Form.Control>
+        </Form.Group>
 
-        <FormGroup className="mb-3">
-          <FormLabel>Description</FormLabel>
-          <Form.Control type="text" placeholder="What it do?" name="description" value={formData.description} onChange={handleChange} required></Form.Control>
-        </FormGroup>
+        <Form.Group className="mb-3">
+          <Form.Label>Description</Form.Label>
+          <Form.Control type="text" placeholder="Description" name="description" value={formData.description} onChange={handleChange} required></Form.Control>
+        </Form.Group>
 
-        <FormGroup className="mb-3">
-          <FormLabel>Category</FormLabel>
-          <Form.Control type="text" placeholder="What it do?" name="category" value={formData.category} onChange={handleChange} required></Form.Control>
-        </FormGroup>
+        <Form.Group className="mb-3">
+          <Form.Label>Category</Form.Label>
+          <Form.Control type="text" placeholder="Category" name="category" value={formData.category} onChange={handleChange} required></Form.Control>
+        </Form.Group>
 
-        <FormGroup className="mb-3">
-          <FormLabel>Price</FormLabel>
+        <Form.Group className="mb-3">
+          <Form.Label>Price</Form.Label>
           <Form.Control type="text" placeholder="How much?" name="price" value={formData.price} onChange={handleChange} required></Form.Control>
-        </FormGroup>
+        </Form.Group>
 
-        <FormGroup className="mb-3">
-          <FormLabel>Image</FormLabel>
-          <Form.Control type="text" placeholder="What it look like?" name="image" value={formData.image} onChange={handleChange} required></Form.Control>
-        </FormGroup>
+        <Form.Group className="mb-3">
+          <Form.Label>Image</Form.Label>
+          <Form.Control type="text" placeholder="Image of product" name="image" value={formData.image} onChange={handleChange}></Form.Control>
+        </Form.Group>
 
         <Button variant="primary" type="Submit">Submit</Button>
       </Form>
