@@ -163,7 +163,7 @@ function ProductDetails () {
                     setEditing(true)
                   }}>Edit</Button>
 
-                  <Button variant="danger" onClick={() => setShowModal(true)} name="Delete">
+                  <Button variant="danger" onClick={() => setShowModal(true)} title="Delete">
                     X
                   </Button>
 
